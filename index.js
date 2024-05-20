@@ -125,14 +125,14 @@ const contractAddresses = [
   {
     address: '0x29892C3C017344cFe360689F456d29DC6672e68D',
     chain: 'BSC',
-    type: '?',
-    wallet: '?',
+    type: 'Multisig Liquidity Provision',
+    wallet: 'Liquidity Provision Round (ref: tokenomics)',
   },
   {
     address: '0x640199a4D52245e4590CDb5649f8644cE8aB2C2B',
     chain: 'BSC',
-    type: '?',
-    wallet: '?',
+    type: 'Multisig Liquidity Provision',
+    wallet: 'Liquidity Provision Round (ref: tokenomics)',
   },
 ];
 
