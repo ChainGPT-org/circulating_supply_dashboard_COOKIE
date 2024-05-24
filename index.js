@@ -87,6 +87,12 @@ const contractAddresses = [
     wallet: 'ChainGPT Labs Marketing/Ecosystem Round (ref: tokenomics)', 
   },
   {
+    address: '0x89822b918875a1782d89d932aac35763da369ba4',
+    chain: 'BSC',
+    type: 'TeamFinance Vesting',
+    wallet: 'ChainGPT Labs Marketing/Ecosystem Round (ref: tokenomics)', 
+  },
+  {
     address: '0x69547C4098BDEC06CAf82FC35c6CcF4a2F19c4E6',
     chain: 'BSC',
     type: 'TeamFinance Vesting',
