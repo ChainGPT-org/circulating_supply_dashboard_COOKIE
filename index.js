@@ -104,6 +104,12 @@ const contractAddresses = [
     type: 'ChainGPT Pad IDO Vesting',
     wallet: 'Public Round (ref: tokenomics)', 
   },
+  {
+    address: '0xb9380598B379F704E128c28011525DD8a9BaF524',
+    chain: 'BNB',
+    type: 'Polkastarter Pad IDO Vesting',
+    wallet: 'Public Round (ref: tokenomics)', 
+  },
 ];
 
 
