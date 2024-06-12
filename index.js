@@ -10,10 +10,10 @@ const port = 3000;
 // BSCSCAN API Key (ENV)
 const apiKey = process.env.BSCSCAN_API_KEY;
 
-// Contract address of FURY token (ENV)
+// Contract address of COOKIE token (ENV)
 const cgptContractAddress = process.env.CGPT_CONTRACT_ADDRESS;
 
-// Maximum Supply of FURY token (ENV)
+// Maximum Supply of COOKIE token (ENV)
 const MaxSupply = process.env.CGPT_MAX_SUPPLY;
 
 const cache = new NodeCache({ stdTTL: 600 }); // Set the cache expiration time to 600 seconds (10 minutes)
@@ -21,124 +21,88 @@ const cache = new NodeCache({ stdTTL: 600 }); // Set the cache expiration time t
 // List of contract addresses with additional information
 const contractAddresses = [
   {
-    address: '0x1439ddD594127924B2624C27689B150D1A6fb723',
-    chain: 'BSC',
+    address: '0xe869e7b9DA52AAC17A856693b57d4cB22CB52B90',
+    chain: 'BNB',
     type: 'TeamFinance Vesting',
-    wallet: 'Private Round (ref: tokenomics)', 
+    wallet: 'Pre-Seed Round (ref: tokenomics)', 
   },
   {
-    address: '0x9a12259e74ca8BB01AEfF93d71FB74636a60514d',
-    chain: 'BSC',
+    address: '0xbf2220496d9AD85F89198D88AcE3D2BF2CdAcB3f',
+    chain: 'BNB',
+    type: 'TeamFinance Vesting',
+    wallet: 'Seed Round (ref: tokenomics)', 
+  },
+  {
+    address: '0xA98827db3Bd5F9FAD43141A48526AE110199Edd0',
+    chain: 'BNB',
+    type: 'TeamFinance Vesting',
+    wallet: 'Strategic Round (ref: tokenomics)', 
+  },
+  {
+    address: '0x2c71243F83575fE271c2E1B0240E7bcb2243dd36',
+    chain: 'BNB',
     type: 'TeamFinance Vesting',
     wallet: 'KOLs Round (ref: tokenomics)', 
   },
   {
-    address: '0x3B228e107686fa4BB19FF4F2752be1A05895ec90',
-    chain: 'BSC',
+    address: '0x3D833b5a7C554ded47accBdc12E709E871F238e5',
+    chain: 'BNB',
     type: 'TeamFinance Vesting',
-    wallet: 'Advisory/Partners Round (ref: tokenomics)', 
+    wallet: 'Pre-Sale Round (ref: tokenomics)', 
   },
   {
-    address: '0x609f9B56e1EFBf0152B0f1212C354467842219b0',
-    chain: 'BSC',
+    address: '0xb26e08a9040f994a89f8a15a9165a217a3bc1141',
+    chain: 'BNB',
     type: 'TeamFinance Vesting',
-    wallet: 'Team(EOF) Round (ref: tokenomics)', 
+    wallet: 'Ecosystem Incentives Round (ref: tokenomics)', 
   },
   {
-    address: '0xaA33Fa2fB63e6b6f3919855496c1F6Bb3c2b94C6',
-    chain: 'BSC',
+    address: '0x08f08790b51B622412ac11567C3933cce637EDAa',
+    chain: 'BNB',
     type: 'TeamFinance Vesting',
-    wallet: 'Team(Estonia) Round (ref: tokenomics)', 
+    wallet: 'Advisory Round (ref: tokenomics)', 
   },
   {
-    address: '0xcC7087bEaE57D30504735a64314489f4b98aD3bd',
-    chain: 'BSC',
+    address: '0xA880f512efbc14058Df9287915DBe0963e73b5AF',
+    chain: 'BNB',
     type: 'TeamFinance Vesting',
-    wallet: 'Marketing/Ecosystem Round (ref: tokenomics)', 
+    wallet: 'Marketing Round (ref: tokenomics)', 
   },
   {
-    address: '0x6ea9c78A6bd4699E133D2267099988165C4b896A',
-    chain: 'BSC',
+    address: '0xAD43f0A15C3A2b103a582d82da9a61A4A132429a',
+    chain: 'BNB',
     type: 'TeamFinance Vesting',
-    wallet: 'Development/Treasury Round (ref: tokenomics)', 
+    wallet: 'Team Round (ref: tokenomics)', 
   },
   {
-    address: '0x6293578A8d4bA23789765B2d9b1d8d047438C272',
-    chain: 'BSC',
+    address: '0x458eeF8f007A9193Fc4d5a277bf4b172F1Ddb992',
+    chain: 'BNB',
     type: 'TeamFinance Vesting',
-    wallet: 'ChainGPT Labs Advisory/Partners Round (ref: tokenomics)', 
+    wallet: 'Treasury Round (ref: tokenomics)', 
   },
   {
-    address: '0x57c6e071Bc353cd9Fa4A5ae5aD1851AFfb5B2f6f',
-    chain: 'BSC',
+    address: '0x40AF9DF73b731760CECe6609c60fA40aFD9810fa',
+    chain: 'BNB',
     type: 'TeamFinance Vesting',
-    wallet: 'ChainGPT Labs Advisory/Partners Round (ref: tokenomics)', 
+    wallet: 'Advisory Round [ChainGPT Labs Fee] (ref: tokenomics)', 
   },
   {
-    address: '0xc0482f4218EA6753d88775c407B07cc7165d035C',
-    chain: 'BSC',
+    address: '0x6Aa5B9F75fd8f3C44d336B9753090159942187bd',
+    chain: 'BNB',
     type: 'TeamFinance Vesting',
-    wallet: 'ChainGPT Labs Advisory/Partners Round (ref: tokenomics)', 
+    wallet: 'Advisory Round [ChainGPT Labs Fee] (ref: tokenomics)', 
   },
   {
-    address: '0x1a97191beF61189045eDa67A67983750D6A4BCBd',
-    chain: 'BSC',
-    type: 'TeamFinance Vesting',
-    wallet: 'ChainGPT Labs Marketing/Ecosystem Round (ref: tokenomics)', 
+    address: '0xbA80Cb24185EF36deb1607Ab4CA17aC1389a6957',
+    chain: 'BNB',
+    type: 'ChainGPT Pad Vesting',
+    wallet: 'Advisory Round [ChainGPT Pad Giveaway] (ref: tokenomics)', 
   },
   {
-    address: '0x89822b918875a1782d89d932aac35763da369ba4',
-    chain: 'BSC',
-    type: 'TeamFinance Vesting',
-    wallet: 'ChainGPT Labs Marketing/Ecosystem Round (ref: tokenomics)', 
-  },
-  {
-    address: '0x69547C4098BDEC06CAf82FC35c6CcF4a2F19c4E6',
-    chain: 'BSC',
-    type: 'TeamFinance Vesting',
-    wallet: 'ChainGPT Labs Marketing/Ecosystem Round (ref: tokenomics)', 
-  },
-  {
-    address: '0x1ae65F6a841c839ceb9bb443e414993C2275C47f',
-    chain: 'BSC',
-    type: 'TeamFinance Vesting',
-    wallet: 'ChainGPT Labs Marketing/Ecosystem Round (ref: tokenomics)', 
-  },
-  {
-    address: '0xB0cD1942e959cAD1428D67A346050d2671C67D0F',
-    chain: 'BSC',
-    type: 'Multisig Liquidity Provision',
-    wallet: 'Liquidity Provision Round (ref: tokenomics)', 
-  },
-  {
-    address: '0x8D46D9f9cF0cee96BBfcbe780CF5A2245c74084F',
-    chain: 'BSC',
-    type: 'Public Round (IDO)',
-    wallet: 'ChainGPT Pad IDO (ref: tokenomics)', 
-  },
-  {
-    address: '0xf302C4ca0089CEc4f541260E2dB3913511C12255',
-    chain: 'BSC',
-    type: 'Public Round (IDO)',
-    wallet: 'Sidus Pad IDO (ref: tokenomics)', 
-  },
-  {
-    address: '0x66FF27A2a38250D3E4a959Ba525cb5B8789893be',
-    chain: 'BSC',
-    type: 'Public Round (IDO)',
-    wallet: 'ApeTerminal Pad IDO (ref: tokenomics)', 
-  },
-  {
-    address: '0x29892C3C017344cFe360689F456d29DC6672e68D',
-    chain: 'BSC',
-    type: 'Multisig Liquidity Provision',
-    wallet: 'Liquidity Provision Round (ref: tokenomics)',
-  },
-  {
-    address: '0x640199a4D52245e4590CDb5649f8644cE8aB2C2B',
-    chain: 'BSC',
-    type: 'Multisig Liquidity Provision',
-    wallet: 'Liquidity Provision Round (ref: tokenomics)',
+    address: '0x0946D75e2ae97A3D070266d58d219296005E57b4',
+    chain: 'BNB',
+    type: 'ChainGPT Pad IDO Vesting',
+    wallet: 'Public Round (ref: tokenomics)', 
   },
 ];
 
@@ -295,15 +259,15 @@ app.get('/', async (req, res) => {
     }
   </style>
   
-  <h1>FURY Circulating Supply Tracker</h1>
-  <p>Total Supply: 120,000,000</p>
-  <p>Burnt FURY: ${burntTokens.toLocaleString()}</p>
-  <p>Live Circulating Supply of FURY: ${totalSupply.toLocaleString()} </p>
+  <h1>COOKIE Circulating Supply Tracker</h1>
+  <p>Total Supply: 1,000,000,000</p>
+  <p>Burnt COOKIE: ${burntTokens.toLocaleString()}</p>
+  <p>Live Circulating Supply of COOKIE: ${totalSupply.toLocaleString()} </p>
   <br><br>
   <table>
     <tr class="title-row">
       <th>Contract Address</th>
-      <th>Balance (FURY)</th>
+      <th>Balance (COOKIE)</th>
       <th>Chain</th>
       <th>Type</th>
       <th>Name</th>
@@ -313,7 +277,7 @@ app.get('/', async (req, res) => {
       <td colspan="5"></td>
     </tr>
     <tr class="total-supply-row">
-      <td>FURY Circulating Supply</td>
+      <td>COOKIE Circulating Supply</td>
       <td>${totalSupply.toLocaleString()}</td>
       <td></td>
       <td></td>
