@@ -110,6 +110,30 @@ const contractAddresses = [
     type: 'Polkastarter Pad IDO Vesting',
     wallet: 'Public Round (ref: tokenomics)', 
   },
+  {
+    address: '0x0ECa5f003a8D2471c6089AfCB0C8fD972c4615A8',
+    chain: 'BNB',
+    type: 'Airdrop Community',
+    wallet: 'Airdrop Round (ref: tokenomics)', 
+  },
+  {
+    address: '0x538656823f1a5F82502D8A7328d7F57975fF3B72',
+    chain: 'BNB',
+    type: 'Airdrop Affiliate',
+    wallet: 'Airdrop Round (ref: tokenomics)', 
+  },
+  {
+    address: '0x45242f3520cf610abffcc0e3315c4fc6080b6154',
+    chain: 'BNB',
+    type: 'Liquidity (MS)',
+    wallet: 'Liquidity Round (ref: tokenomics)', 
+  },
+  {
+    address: '0x4589481a385A5Fa77b2003efD4Feb34E4693254f',
+    chain: 'BNB',
+    type: 'Liquidity (MS)',
+    wallet: 'Liquidity Round (ref: tokenomics)', 
+  },
 ];
 
 
