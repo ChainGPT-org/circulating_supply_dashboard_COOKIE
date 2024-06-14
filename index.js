@@ -111,13 +111,13 @@ const contractAddresses = [
     wallet: 'Public Round (ref: tokenomics)', 
   },
   {
-    address: '0x0ECa5f003a8D2471c6089AfCB0C8fD972c4615A8',
+    address: '0x2Ae6d20d9BA2f44c01691199C194D1fC9766db1c',
     chain: 'BNB',
     type: 'Airdrop Community',
     wallet: 'Airdrop Round (ref: tokenomics)', 
   },
   {
-    address: '0x538656823f1a5F82502D8A7328d7F57975fF3B72',
+    address: '0xbe3bCFe844bfe935c816519F998F0A57787dbAC2',
     chain: 'BNB',
     type: 'Airdrop Affiliate',
     wallet: 'Airdrop Round (ref: tokenomics)', 
