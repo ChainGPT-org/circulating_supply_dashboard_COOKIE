@@ -93,7 +93,7 @@ const contractAddresses = [
     wallet: 'Advisory Round [ChainGPT Labs Fee] (ref: tokenomics)', 
   },
   {
-    address: '0xbA80Cb24185EF36deb1607Ab4CA17aC1389a6957',
+    address: '0x1CF9E5E416d26E9aB0764C5e6eEa2412f749d3c9',
     chain: 'BNB',
     type: 'ChainGPT Pad Vesting',
     wallet: 'Advisory Round [ChainGPT Pad Giveaway] (ref: tokenomics)', 
